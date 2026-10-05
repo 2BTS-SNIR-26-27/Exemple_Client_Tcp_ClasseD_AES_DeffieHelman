@@ -1,0 +1,8 @@
+/*
+ * Copyright (c) 2026 Michaël Moser.
+ *
+ * Auteur : Michaël Moser
+ * Tous droits réservés.
+ */
+
+rootProject.name = "Client_TCP_Prof"

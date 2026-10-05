@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<!--
+  ~ Copyright (c) 2026 Michaël Moser.
+  ~
+  ~ Auteur : Michaël Moser
+  ~ Tous droits réservés.
+  -->
+
+<AnchorPane id="AnchorPane" prefHeight="480.0" prefWidth="580.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.astier.bts.client_tcp_prof.HelloController">
+    <children>
+        <Button fx:id="button" contentDisplay="CENTER" defaultButton="true" layoutX="488.0" layoutY="320.0" text="Envoyer" AnchorPane.leftAnchor="510.0">
+            <font>
+                <Font size="11.0" />
+            </font>
+        </Button>
+        <Label fx:id="labelServeur" alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="6.0" layoutY="396.0" minHeight="16" minWidth="58.0" prefHeight="18.0" prefWidth="87.0" text="\@ serveur:" textAlignment="RIGHT" AnchorPane.leftAnchor="6.0">
+            <font>
+                <Font size="11.0" />
+            </font>
+        </Label>
+        <Label fx:id="labelPort" alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="281.0" layoutY="396.0" minHeight="16" minWidth="32.0" prefHeight="18.0" prefWidth="80.0" text="Port :" textAlignment="RIGHT" AnchorPane.leftAnchor="281.0">
+            <font>
+                <Font size="11.0" />
+            </font>
+        </Label>
+        <TextField fx:id="textFieldIP" alignment="CENTER" layoutX="103.0" layoutY="392.0" AnchorPane.leftAnchor="103.0">
+            <font>
+                <Font size="11.0" />
+            </font>
+        </TextField>
+        <TextField fx:id="textFieldPort" alignment="CENTER" layoutX="368.0" layoutY="392.0" prefHeight="25.0" prefWidth="129.0" AnchorPane.leftAnchor="370.0">
+            <font>
+                <Font size="11.0" />
+            </font>
+        </TextField>
+        <TextField fx:id="textFieldRequette" layoutX="103.0" layoutY="320.0" prefHeight="25.0" prefWidth="398.0">
+            <font>
+                <Font size="11.0" />
+            </font>
+        </TextField>
+        <Label fx:id="labelRequette" alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="14.0" layoutY="324.0" minHeight="16" minWidth="58.0" prefHeight="18.0" prefWidth="80.0" text="Requette:" textAlignment="RIGHT" AnchorPane.leftAnchor="14.0">
+            <font>
+                <Font size="11.0" />
+            </font>
+        </Label>
+        <TextArea fx:id="textAreaReponses" editable="false" layoutX="14.0" layoutY="14.0" prefHeight="278.0" prefWidth="558.0" wrapText="true" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+            <effect>
+                <InnerShadow color="#000000cd" height="128.0" radius="63.5" width="128.0" />
+            </effect>
+            <font>
+                <Font name="Cascadia Mono Bold" size="12.0" />
+            </font>
+        </TextArea>
+      <ImageView fx:id="imageView" fitHeight="271.0" fitWidth="551.0" layoutX="12.0" layoutY="14.0" nodeOrientation="INHERIT" opacity="0.12">
+         <image>
+            <Image url="@../../../../images/binaire.png" />
+         </image></ImageView>
+        <Button fx:id="connecter" layoutX="540.8" layoutY="443.0" text="On" textAlignment="CENTER" AnchorPane.rightAnchor="9.600000000000023">
+            <font>
+                <Font size="11.0" />
+            </font>
+        </Button>
+        <Button fx:id="deconnecter" cancelButton="true" layoutX="506.4" layoutY="443.0" text="Off" textAlignment="CENTER" AnchorPane.rightAnchor="44.0">
+            <font>
+                <Font size="11.0" />
+            </font>
+        </Button>
+        <Circle fx:id="voyant" fill="RED" layoutX="538.0" layoutY="414.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.rightAnchor="25.0" />
+      <ChoiceBox fx:id="choixInterface" layoutX="240.0" layoutY="433.0" prefHeight="26.0" prefWidth="130.0" />
+      <Button fx:id="raz" cancelButton="true" contentDisplay="CENTER" layoutX="521.0" layoutY="355.0" mnemonicParsing="false" text="raz" />
+    </children>
+</AnchorPane>
