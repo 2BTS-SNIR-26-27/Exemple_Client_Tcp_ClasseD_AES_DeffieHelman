@@ -18,7 +18,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class HelloApplication extends Application {
-    static void main(String[] args) {
+    public static void main(String[] args) {
         launch();
     }
 

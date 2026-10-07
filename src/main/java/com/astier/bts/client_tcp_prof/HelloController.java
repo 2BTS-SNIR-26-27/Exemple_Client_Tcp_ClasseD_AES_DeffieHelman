@@ -11,20 +11,16 @@ import com.astier.bts.client_tcp_prof.modeles.Ipv4;
 import com.astier.bts.client_tcp_prof.multicast_diffusion.MulticastDiffusion;
 import com.astier.bts.client_tcp_prof.outils.ScanInterfaces;
 import com.astier.bts.client_tcp_prof.tcp.TCP;
+import com.astier.bts.totp.Totp;
 import exceptions.DiagnosticException;
-import javafx.animation.PauseTransition;
-import javafx.application.Platform;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.shape.Circle;
-import javafx.util.Duration;
 
 import java.net.InetAddress;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import static javafx.scene.paint.Color.*;
@@ -44,6 +40,7 @@ public class HelloController implements Initializable {
     public Button raz;
     MulticastDiffusion multicastDiffusion;
     String adresse, port, interfaceSelectionnee;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         voyant.setFill(RED);
@@ -54,6 +51,7 @@ public class HelloController implements Initializable {
             connecter.setOnAction(event -> connecter());
             deconnecter.setOnAction(event -> deconnecter());
             raz.setOnAction(event -> raz());
+            controleTotp();
             choixInterface.getSelectionModel().selectedItemProperty().addListener((observable, ancienneValeur, nouvelleValeur) -> {
                 if (nouvelleValeur != null) {
                     System.out.println("Interface sélectionnée : " + nouvelleValeur.nomInterface());
@@ -65,6 +63,25 @@ public class HelloController implements Initializable {
             });
         } catch (Exception e) {
             textAreaReponses.setText(DiagnosticException.afficheException(e));
+        }
+    }
+
+    private void controleTotp() {
+        Totp totp = new Totp();
+        boolean codeOk = false;
+        while (!codeOk) {
+            // Créer un TextInputDialog pour la saisie de texte
+            TextInputDialog inDialog = new TextInputDialog();
+            inDialog.setTitle("Controle autorisation");
+            inDialog.setHeaderText("");
+            inDialog.setContentText("Code OTP :");
+            Optional<String> textIn = inDialog.showAndWait();
+            try {
+                if (textIn.isPresent()) {
+                    codeOk = totp.testCodeTOTP(Integer.parseInt(textIn.get()));
+                } else System.exit(0);
+            } catch (Exception e) {
+            }
         }
     }
 
