@@ -67,7 +67,7 @@ public class HelloController implements Initializable {
     }
 
     private void controleTotp() {
-        Totp totp = new Totp();
+        Totp totp = new Totp("53UPAEE2VF5CXGZ6MHDE7W64VRP7CBDB");
         boolean codeOk = false;
         while (!codeOk) {
             // Créer un TextInputDialog pour la saisie de texte

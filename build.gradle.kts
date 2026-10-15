@@ -43,7 +43,7 @@ javafx {
 }
 
 dependencies {
-    implementation("com.github.MoserBTS:totp:1.0.1")
+    implementation("com.github.MoserBTS:totp:1.0.3")
     implementation("commons-codec:commons-codec:1.21.0")
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
